@@ -1,0 +1,367 @@
+
+
+#logo{
+    color: aliceblue;
+    width: 2.5rem;
+    background-color: #05a081 ;
+    border: 3px solid #05a081;
+    border-radius: 3px;
+    
+}
+
+#emp{
+    display: none;
+}
+
+#cat{
+    display: none;
+}
+
+.bg-dark {
+    
+    background-color: #232a34;
+}
+
+#barraBuscar{
+    width: 100%;
+}
+
+#carrito{
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    margin-top: 4px;
+    
+}
+
+#carritoSeccion{
+    color: rgb(0, 0, 0);
+ 
+    
+}
+
+#navbar{
+    background-color:#232a34 ;
+}
+
+#logo1{
+    margin-right: 12px;
+}
+
+#barraBuscarMovil{
+    width: 100%;
+
+}
+
+#carritoMovil{
+    color: white;
+    font-size: 2rem;
+    margin-top: 4px;
+    
+}
+
+#ingresar {
+  color: white;
+  background-color: #05a081;
+}
+
+#aCarrito{
+    display: none;
+}
+
+
+
+.ofertas{
+    width: 70%;
+    border-radius: 5px !important;
+    border-width: 3px !important;
+    margin-top: 2rem;
+}
+
+.carrusel{
+    border: 2px solid #D2D2D2 !important;
+    border-radius: 5px;
+}
+
+.titulosCategorias{
+ text-align: center;
+
+}
+
+.scrollLateral{
+    min-height: 160px;
+    
+    display: flex;
+    overflow-x: auto;
+}
+
+.scrollLateral::-webkit-scrollbar{
+    width: 0;
+
+}
+
+.scrollLateral .productoScroll{
+    min-width: 110px;
+    max-height: 110px;
+    line-height: 110px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    margin-right: 5rem;
+    text-align: initial;
+    
+}
+
+
+
+#productosCategorias{
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #ddd;
+    width: 140px;
+    max-height: 182px;
+
+}
+
+.imagenCategoria{
+    max-width: 110px;
+    max-height: 110px;
+
+}
+   
+.imgLanding{
+        height: 2rem;
+     
+}
+
+.scrollLateral::-webkit-scrollbar-thumb{
+   display: none;
+    
+}
+#modalIngresar{
+    transition: 0.3s ease;
+}
+
+#modalRegistro{
+    transition: 0.3s ease-out;
+}
+
+#modalConfirmarCompra{
+    transition: 0.3s ease-out;
+}
+
+
+.fecha {
+    display: block;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+#carritoConfirmar{
+    padding-top: 1rem;
+    background-color: #212529;
+    color: #D2D2D2;
+   
+    text-align: center;  
+    
+}
+
+
+
+
+@media (min-width: 992px) { 
+    
+    #carruselMovil{
+        display:none;
+    }
+
+    .scrollLateral::-webkit-scrollbar-thumb{
+       
+        background-color: #ddd;
+         size: 2px;
+     }
+}
+
+@media (min-width: 1199.98px) { 
+    #barraBuscar{
+        width: 30rem;
+    }
+    .d-flex {
+        display: flex!important;
+        margin-right: 5rem;
+    }
+    
+}
+
+@media (max-width: 767.98px) { 
+    .imagenEmpresa{
+    width: 8rem;
+    }
+ }
+
+
+@media (max-width: 991px) { 
+    #carrito{
+        display: none;
+    }
+    #barraBuscar{
+        display: none;
+    }
+    .ofertas{
+        display: none;
+    }
+    #carruselEscritorio{
+        display:none;
+    }
+    .scrollLateral{
+        min-height: 200px;
+        
+        display: flex;
+        overflow-x: auto;
+        
+        
+    }
+    
+    .scrollLateral::-webkit-scrollbar{
+        width: 3px;
+    
+    }
+    
+    .scrollLateral .productoScroll{
+        max-width: 150px;
+        height: 150px;
+        line-height: 150px;
+        text-align: center;
+        background-color: rgb(255, 255, 255);
+        margin-right: 5rem;
+ 
+    }
+   
+    .imgLanding{
+        height: 10rem;
+    }
+   
+
+    .imagenEmpresa{
+        width: 15rem;
+    }
+
+
+
+    .imagenCardEmpresa{
+        background-color: #ddd;
+        height: 15rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+    }
+
+    .imagenCardCarrito{
+        background-color: #ddd;
+        height: 15rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+    }
+    
+}
+
+
+@media (min-width: 991px) { 
+    #barraBuscarMovil{
+        display: none;
+        
+    }
+    .movil{ 
+        display: none;
+    }
+    #logo{
+        color: aliceblue;
+        width: 2.5rem;
+        background-color: #05a081 ;
+        border: 3px solid #05a081;
+        border-radius: 3px;
+        margin-left: 0;
+    }
+    #logo1{
+        margin-right: 16px;
+    }
+    
+    .scrollLateral{
+        min-height: 200px;
+        
+        display: flex;
+        overflow-x: auto;
+    }
+    
+    .scrollLateral::-webkit-scrollbar{
+        width: 3px;
+        
+    
+    }
+
+    #carruselMovil{
+        display:none;
+    }
+
+  
+    .scrollLateral::-webkit-scrollbar-thumb{
+        background-color: #ddd;
+        size: 2px;
+        display:block;
+    }
+    
+    
+    .scrollLateral .productoScroll{
+        max-width: 150px;
+        height: 150px;
+        line-height: 150px;
+        text-align: center;
+        background-color: rgb(255, 255, 255);
+        margin-right: 5rem;
+        
+    }
+    .imgLanding{
+        height: 10rem;
+    }
+    
+    .imagenEmpresa{
+       padding: 1rem;
+       max-height: 8rem;
+       min-height: 8rem;
+    
+    }
+
+    .imagenCardEmpresa{
+        background-color: #ddd;
+        max-height: 20rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+        padding: 1rem;
+    } 
+    
+    .imagenCardCarrito{
+        background-color: #ddd;
+        max-height: 20rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+        padding: 1rem;
+    }
+    
+}
+
+
+
+

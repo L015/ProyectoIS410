@@ -1,0 +1,177 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor{
+    height: 100vh;
+    width: 100vw;
+}
+
+.menu {
+    height: 7%;
+    background-color: #232a34;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    padding: 0rem 0.6rem;
+}
+
+.contenido-tarjetas {
+    height: 93%;
+    background-color: #dfe8f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+}
+
+.logo{
+    width: 2.7rem;
+    height: 2.3rem;
+    background-color: #05a081;
+    padding: 0.4rem;
+    border-radius: 10px;
+}
+.cuenta{
+    width: 2.7rem;
+    height: 2.3rem;
+    background-color: #05a081;
+    padding: 0.4rem;
+    border-radius: 10px;
+}
+
+#link-crear-cuenta{
+    cursor: pointer;
+}
+
+.campoValido{
+border: 1px solid rgb(92, 187, 224)!important;
+}
+
+.campoNoValido{
+border: 1px solid rgb(228, 46, 46)!important;
+}
+
+.campoValido:focus{
+    box-shadow: 0 0 0 0.25rem rgb(92 187 224 / 40%)!important;
+}
+    
+.campoNoValido:focus{
+    box-shadow: 0 0 0 0.25rem rgb(228 46 46 / 40%)!important;
+}
+
+.tarjetas {
+    height: 31%;
+    background: #f4f4f5;
+    padding: 0.5rem 0.5rem;
+    border-radius: 14px;
+    border: 2px solid #045141;
+    display: flex;
+    flex-direction: column;
+}
+.hr-tarjetas{
+margin: 0.5rem 0rem;
+}
+.h6-tarjeta{
+    color: #014a3b;
+}
+
+.contenido-envios{
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.envios {
+    margin: 0.3rem 0.2rem;
+    height: 2.8rem;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid #b7b7b7;
+}
+
+.envios {
+    margin: 0.3rem 0.2rem;
+    height: 2.8rem;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid #b7b7b7;
+    padding: 0rem 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size:  14px;
+}
+i.fa-solid.fa-location-dot {
+    color: #05a081;
+}
+button.ver-pedido {
+    background-color: #3498c5;
+    color: #ffffff;
+    border: none;
+    padding: 0.3rem;
+    border-radius: 10px;
+}
+.btn-aceptar{
+    background-color: #05a081!important;
+    border: none;
+    color: #ffffff!important;
+}
+.btn-cerrar{
+    background-color: rgb(235, 46, 46)!important;
+    border: none;
+    color: #ffffff!important;
+}
+section.ProductosYPrecio {
+    display: flex;
+    justify-content: space-between;
+}
+i.fa-solid.fa-cart-shopping {
+    color: #0d8d51;
+}
+
+.productos {
+    color: #0c3d19;
+    font-weight: 400;
+}
+
+button.btn.btn-actualizar {
+    background-color: green;
+    color: #ffffff;
+}
+
+.precios {
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+section.DescripcionPedido {
+    padding-top: 1rem;
+    font-weight: 600;
+}
+
+@media (min-width: 900px) {
+    .contenido-tarjetas {
+        height: 93%;
+        background-color: #dfe8f7;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 2rem 1rem;
+    }
+    .tarjetas {
+        height: 100%;
+        width: 32%;
+        background: #f4f4f5;
+        padding: 0.5rem 0.5rem;
+        border-radius: 14px;
+        border: 2px solid #045141;
+    }
+
+    .envios{
+        font-size: 12px;
+    }
+}
