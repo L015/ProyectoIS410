@@ -1,0 +1,18 @@
+ 
+
+[{
+    "nombre" : "Juan",
+    "apellido" : "Perez",
+    "email": "juanP@hotmail.com",
+    "contraseña": "1234",
+    "tipoUsuario": "Cliente",
+    "validado": false
+},
+{
+    "nombre" : "Maria",
+    "apellido" : "Perez",
+    "email": "mariaP@hotmail.com",
+    "contraseña": "1234",
+    "tipoUsuario": "Cliente",
+    "validado": false
+}]
