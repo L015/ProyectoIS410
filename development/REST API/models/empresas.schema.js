@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var esquema = new mongoose.Schema({
     nombreEmpresa : String,
-    descripcion : String,
+    descripcionEmpresa : String,
     calificacion: String,
     categoria: String,
     img: String,

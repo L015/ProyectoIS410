@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 
 var esquema = new mongoose.Schema({
     nombreProducto : String,
-    precio : String,
-    descripcion: String,
+    precio : Number,
+    descripcionProducto: String,
     categoria: String,
     empresa: String,
     img: String,
