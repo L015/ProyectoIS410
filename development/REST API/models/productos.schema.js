@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var esquema = new mongoose.Schema({
     nombreProducto : String,
     precio : Number,
-    descripcionProducto: String,
+    descripcion: String,
     categoria: String,
     empresa: String,
     img: String,
@@ -12,4 +12,3 @@ var esquema = new mongoose.Schema({
                                 //nombre de la coleccion
 module.exports = mongoose.model('productos', esquema);
                                             //el esquema que creamos
-                                            
