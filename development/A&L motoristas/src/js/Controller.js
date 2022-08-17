@@ -661,14 +661,28 @@ var validarCampoVacio = function(etiqueta){
 var llenarEnviosEchos = function(){
     let espacio = document.getElementById('envios-echos');
     espacio.innerHTML=' ';
-    enviosEchos.forEach(element => {
-    espacio.innerHTML+=`
+    $.ajax({
+        url: "/motoristas/pedidos", 
+        method: "GET",
+        dataType: "json",
+        success:(res)=>{
+            
+                res.forEach(element => {     
+                    if(element.estado=='Entregada'){
+
+                        espacio.innerHTML+=`
                     <div class="envios">
-                        <section><i class="fa-solid fa-location-dot"></i>${element.direccion}</section>
-                        <button class="ver-pedido" onclick="verFactura(this)" value="${element.codigo}">ver pedido</button>
+                        <section><i class="fa-solid fa-location-dot"></i>${element.ubicacion}</section>
+                        <button class="ver-pedido" onclick="verFactura(this)" value="${element.numeroPedido}">ver pedido</button>
                     </div>
-    `
-   });
+                `      
+                    }    
+                          })
+         },
+        error:(error)=>{
+            console.log(error);
+        } 
+    });
 }
 
 llenarEnviosEchos();
@@ -676,14 +690,28 @@ llenarEnviosEchos();
 var llenarEnviosNoTomados = function(){
     let espacio = document.getElementById('envios-no-tomados');
     espacio.innerHTML=' ';
-    enviosNoTomados.forEach(element => {
-    espacio.innerHTML+=`
-                            <div class="envios">
-                            <section><i class="fa-solid fa-location-dot"></i>${element.direccion}</section>
-                            <button class="ver-pedido" onclick="verPedidoDisponible(this)" value="${element.codigo}">ver pedido</button>
-                            </div>
-    `
-   });
+
+    $.ajax({
+        url: "/motoristas/pedidos", 
+        method: "GET",
+        dataType: "json",
+        success:(res)=>{
+            
+                res.forEach(element => {     
+                    if(element.estado=='No aceptado'){
+                        espacio.innerHTML+=`
+                        <div class="envios">
+                        <section><i class="fa-solid fa-location-dot"></i>${element.ubicacion}</section>
+                        <button class="ver-pedido" onclick="verPedidoDisponible(this)" value="${element.numeroPedido}">ver pedido</button>
+                        </div>
+`     
+                    }    
+                          })
+         },
+        error:(error)=>{
+            console.log(error);
+        } 
+    });
 }
 
 llenarEnviosNoTomados();
@@ -691,14 +719,30 @@ llenarEnviosNoTomados();
 var llenarEnviosTomadosNoEntregados = function(){
     let espacio = document.getElementById('envios-tomados-no-realizados');
     espacio.innerHTML=' ';
-    enviosTomadosNoEntregados.forEach(element => {
-    espacio.innerHTML+=`
+
+    $.ajax({
+        url: "/motoristas/pedidos", 
+        method: "GET",
+        dataType: "json",
+        success:(res)=>{
+            
+                res.forEach(element => {     
+                    if((element.estado!='No aceptado') && (element.estado!='Entregada')){
+                        espacio.innerHTML+=`
                         <div class="envios">
-                        <section><i class="fa-solid fa-location-dot"></i>${element.direccion}</section>
-                        <button class="ver-pedido" onclick="verPedidoPendiente(this)" value="${element.codigo}">ver pedido</button>
+                        <section><i class="fa-solid fa-location-dot"></i>${element.ubicacion}</section>
+                        <button class="ver-pedido" onclick="verPedidoPendiente(this)" value="${element.numeroPedido}">ver pedido</button>
                         </div>
-    `
-   });
+                        `
+                    }
+                    
+                    
+                          })
+         },
+        error:(error)=>{
+            console.log(error);
+        } 
+    });
 }
 
 llenarEnviosTomadosNoEntregados();
