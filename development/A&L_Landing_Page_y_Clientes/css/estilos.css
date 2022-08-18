@@ -17,6 +17,11 @@
     display: none;
 }
 
+#car{
+    display: none;
+}
+
+
 .bg-dark {
     
     background-color: #232a34;
@@ -100,9 +105,9 @@
 }
 
 .scrollLateral .productoScroll{
-    min-width: 110px;
+    min-width: 200px;
     max-height: 110px;
-    line-height: 110px;
+    line-height: 180px;
     text-align: center;
     background-color: rgb(255, 255, 255);
     margin-right: 5rem;
@@ -112,7 +117,7 @@
 
 
 
-#productosCategorias{
+.productosCategorias{
     border: 2px solid #ddd;
     border-radius: 5px;
     background-color: #ddd;
@@ -169,15 +174,41 @@
 
 #carritoConfirmar{
     padding-top: 1rem;
-    background-color: #212529;
-    color: #D2D2D2;
-   
+    background-color: #ffffff;
+    color: #000000;
+  
     text-align: center;  
     
 }
 
 
+.cuenta{
+    width: 2.7rem;
+    height: 2.3rem;
+    background-color: #05a081;
+    padding: 0.4rem;
+    border-radius: 10px;
+}
 
+#link-crear-cuenta{
+    cursor: pointer;
+}
+
+.campoValido{
+border: 1px solid rgb(92, 187, 224)!important;
+}
+
+.campoNoValido{
+border: 1px solid rgb(228, 46, 46)!important;
+}
+
+.campoValido:focus{
+    box-shadow: 0 0 0 0.25rem rgb(92 187 224 / 40%)!important;
+}
+    
+.campoNoValido:focus{
+    box-shadow: 0 0 0 0.25rem rgb(228 46 46 / 40%)!important;
+}
 
 @media (min-width: 992px) { 
     
