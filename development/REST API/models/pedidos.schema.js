@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var esquema = new mongoose.Schema({
-    numeroPedido : String,
+    numeroPedido : Number,
     nombreCliente : String,
     ubicacion: String,
     estado: String,
