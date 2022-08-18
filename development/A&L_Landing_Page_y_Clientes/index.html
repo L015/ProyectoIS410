@@ -10,6 +10,7 @@
     <script src="https://kit.fontawesome.com/0a8551c100.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="img/A_L-icon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/0a8551c100.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
     <!--Navbar-->
@@ -38,13 +39,13 @@
                 <a class="nav-link active " aria-current="page" href="#" onclick="cargarLanding()" id="botonInicio">Inicio</a>
               </li>
               <li class="nav-item mx-lg-4 mx-md-3">
-                <a class="nav-link " href="#" onclick="cargarCategorias()" id="botonCategorias">Categorias</a>
+                <a class="nav-link " href="#" onclick="cargarCategorias()" onfocus="modalProductos('62fa92ea62d867e97b07c784')" id="botonCategorias">Categorias</a>
               </li>
               <li class="nav-item mx-lg-4 mx-md-3">
                 <a class="nav-link " href="#"  onclick="cargarEmpresas()" id="botonEmpresas">Empresas</a>
               </li>
               <li class="nav-item mx-lg-4 mx-md-3 ">
-                <button class="btn btn-outline-success" type="submit" id="ingresar" data-bs-toggle="modal" data-bs-target="#modalIngresar">Ingresar</button>
+                <button class="btn btn-outline-success" type="submit" id="ingresar" data-bs-toggle="modal" onclick="kek()" data-bs-target="#modalIngresar">Ingresar</button>
                 
               </li >
               <li class="nav-item mx-lg-4 mx-md-3 ">
@@ -55,13 +56,13 @@
            
           </div>
         </div>
-      </nav>
+  </nav>
 
     
 
 
       <!--Landing-page-->
-      <div id="landing">
+    <div id="landing">
       <div class="container" id="landingEscritorio">
         <div class="row">
         <div class="col-4 ofertas mt-3">
@@ -124,8 +125,8 @@
         
         </div>
       </div>
-      </div>
-
+    </div>
+  </div>
       <!--Categorias-->
 
       <div id="cat">
@@ -176,50 +177,43 @@
           <div class="row row-cols-1 row-cols-md-2 g-3" id="carritoPag">
             
           </div>
-        </div class="container">
-          <div class="row" id="carritoConfirmar" style="margin-top: 1rem;">
-            <div class="col-12">
-              <h3>Total de compra: 99999$</h3>
-            </div>
-            <div style="margin-top:1rem ;">
-              <button  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalConfirmarCompra">Confirmar Compra</button>
-              <br><br>
-            </div>
-          </div>   
+        </div>
+        <hr>
+          <div class="container">
+            <div class="row" id="carritoConfirmar" style="margin-top: 1rem;">
+           
+            </div> 
+          </div>
+            
       </div>
       
 
 
       <!-- Modal de Iniciar Sesion -->
-  <div class="modal fade" id="modalIngresar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modalIngresar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Iniciar sesión</h5>
+          <hr>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form class="row g-3 needs-validation" novalidate> 
+          <form>
             <div class="mb-3">
-              <label for="email" class="form-label">Correo Electrónico</label>
-              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
-              <div id="emailHelp" class="form-text">Nunca compartiremos tu email con alguien mas.</div>
-              <div class="valid-feedback">
-                Correo valido
-              </div>
-              <div class="invalid-feedback">
-                Ingrese un correo valido
-              </div>
+              <label  class="form-label">Direccion de Correo Electronico</label>
+              <input type="email" class="form-control" id="inputEmailL" aria-describedby="emailHelp" onkeyup="validacionCorreo(this)">
+              <div class="form-text" >exampleemail@mail.com</div>
             </div>
             <div class="mb-3">
-              <label for="contrasena" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="contrasena" required>
+              <label class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="inputPasswordL" onkeyup="validacionContraseña(this)">
+              <div class="form-text" >Debe contener minimo 8 caracteres, entre ellos mayusculas,minusculas,digitos y caractes especial</div>
             </div>
-            
-            <div id="emailHelp" class="form-text">Si no tiene una cuenta puede <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modalRegistro"> Registrarse aqui</a></div>
-            <hr>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-primary">Confirmar</button>
+           <hr>
+            <button type="button" class="btn btn-primary" id="botonIngresar"  onclick="ingresar()" >Ingresar</button>
+            <br>
+            <div id="link-crear-cuenta" class="form-text" type="button" style="color: blue" onclick="validarCamposVaciosCrearCuenta()" data-bs-toggle="modal" data-bs-target="#modalRegistro" >Si no tiene cuenta presione aqui para crear una</div>
           </form>
         </div>
       </div>
@@ -237,41 +231,28 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form class="row g-3 needs-validation" novalidate> 
+                <form>
                   <div class="mb-3">
-                    <label for="nombreCompleto" class="form-label">Nombre completo</label>
-                    <input type="text" class="form-control" id="nombreCompleto" required>
-                  </div>
-                  <div class="mb-3 container">
-                    <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
-                    <div class="row" id="fechaNacimiento" >
-                      <input type="number" class="col-4 fecha" placeholder="Dia" required>
-                      <input type="number" class="col-4 fecha" placeholder="Mes" required>
-                      <input type="number" class="col-4 fecha" placeholder="Año" required>
-                    </div>
+                    <label  class="form-label">Nombre</label>
+                    <input type="email" class="form-control" id="inputNameR" aria-describedby="emailHelp" onkeyup="validarCampoVacio(this)">
                   </div>
                   <div class="mb-3">
-                    <label for="email" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
-                    <div id="emailHelp" class="form-text">Nunca compartiremos tu email con alguien mas.</div>
-                    <div class="valid-feedback">
-                      Correo valido
-                    </div>
-                    <div class="invalid-feedback">
-                      Ingrese un correo valido
-                    </div>
+                    <label  class="form-label">Apellido</label>
+                    <input type="email" class="form-control" id="inputLastNameR" aria-describedby="emailHelp" onkeyup="validarCampoVacio(this)">
                   </div>
                   <div class="mb-3">
-                    <label for="contrasena" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="contrasena" required>
+                    <label  class="form-label">Direccion de Correo Electronico</label>
+                    <input type="email" class="form-control" id="inputEmailR" aria-describedby="emailHelp" onkeyup="validacionCorreo(this)">
                   </div>
                   <div class="mb-3">
-                    <label for="contrasena" class="form-label">Repita la contraseña</label>
-                    <input type="password" class="form-control" id="contrasena" required>
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="inputPasswordR" onkeyup="validacionContraseña(this)">
                   </div>
-                  <hr>
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary" >Confirmar</button>
+                  <div class="mb-3">
+                    <label class="form-label">Confirmar Contraseña</label>
+                    <input type="password" class="form-control" id="confirmPassword" onkeyup="confirmarContraseña(this)">
+                  </div>
+                  <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" id="registro" onclick="crearCuenta()">Crear Cuenta</button>
                 </form>
               </div>
             </div>
@@ -287,27 +268,27 @@
                 <h5 class="modal-title" id="exampleModalLabel">Completar Pago</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
-                <form class="row g-3 needs-validation" novalidate> 
+              <div class="modal-body" >
+                <form class="row g-3 needs-validation" id="login"> 
                   <div class="mb-3">
-                    <label for="nombreCompletoTarjeta" class="form-label">Nombre del titular</label>
-                    <input type="text" class="form-control" id="nombreCompleto" required>
+                    <label  class="form-label">Nombre</label>
+                    <input type="email" class="form-control" id="inputName" aria-describedby="emailHelp" onkeyup="validarCampoVacio(this)">
                   </div>
                   <div class="mb-3 container">
                     <label for="numeroTarjeta" class="form-label">Numero de la Tarjeta</label>
-                    <input type="number" id="numeroTarjeta" class="form-control" required>
+                    <input type="number" id="numeroTarjeta" class="form-control">
                   </div>
                   <div class="mb-3">
                     <label for="fechaExpiracion" class="form-label">Fecha de expiración</label>
                     <div class="row justify-content-evenly" id="fechaExpiracion" >
-                      <input type="number" class="col-4 fecha" placeholder="Mes" required>
-                      <input type="number" class="col-4 fecha" placeholder="Año" required>
+                      <input type="number" class="col-4 fecha" placeholder="Mes">
+                      <input type="number" class="col-4 fecha" placeholder="Año">
                     </div>
                   </div>
                   <div class="mb-3">
                     <label for="ccv" class="form-label">Codigo de seguridad</label>
                     <div class="row justify-content-evenly" id="ccv" >
-                      <input type="number" class="col-4 fecha" placeholder="CCV" required>
+                      <input type="number" class="col-4 fecha" placeholder="CCV">
                       <img class="col-6" src="img/ccv.png">
                     </div>
                   </div>
@@ -326,7 +307,12 @@
           </div>
         </div>
       
-     
+        <!--Modal productos-->
+        <div class="modal fade" id="productosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+        </div>
+        
+        
 
     <script src="js/controlador.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
