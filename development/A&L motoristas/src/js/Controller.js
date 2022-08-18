@@ -497,7 +497,6 @@ var buscarPorCodigoPedidoDisponible = function(codigo){
                         <div>
                         Direccion: ${element.ubicacion}
                         </div>
-                        <div>
                         `
                         ;                                      
                     }            
