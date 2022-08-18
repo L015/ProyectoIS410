@@ -14,7 +14,6 @@ function iniciarSesion(){
         success:(res)=>{
           res.forEach(element => {
             if((element.email==email) && (element.contraseña==password)){
-            alert('sesion iniciada');
             //desaparecer modal,no ocupamos mongo, sino logica pura  
             }
             
@@ -158,7 +157,7 @@ var llenarProductos = function(){
 
    let buscador = document.getElementById('buscador-container');
    buscador.innerHTML=`
-   <button class="btn btn-aceptar" onclick="verModalAdministrar()">Ingresar Nuevo</button>
+   <button class="btn btn-aceptar" onclick="verModalAdministrarIngresarProducto()">Ingresar Nuevo</button>
                     <hr>
                     <input type="text" class="form-control" id="buscador" placeholder="buscar">
                     <hr>
@@ -342,13 +341,26 @@ var verModalAdministrarIngresarEmpresa = function(){
  }
  
 function btnIngresarEmpresa()  {
-let mynombre = document.getElementById('nombreIngresarEmpresa').value;
-let mydescripcion = document.getElementById('descripcionIngresarEmpresa').value;
-let mycalificacion = document.getElementById('calificacionIngresarEmpresa').value;
-let mycategoria = document.getElementById('categoriaIngresarEmpresa').value;
-let myimg = document.getElementById('imgIngresarEmpresa').value;
-console.log(mynombre);
 
+$.ajax({
+    url: "/administracion/nuevaEmpresa", 
+    method: "POST",
+    data: {
+      nombreEmpresa : document.getElementById('nombreIngresarEmpresa').value,
+      descripcion : document.getElementById('descripcionIngresarEmpresa').value,
+      calificacion: document.getElementById('calificacionIngresarEmpresa').value,
+      categoria: document.getElementById('categoriaIngresarEmpresa').value,
+      img: document.getElementById('imgIngresarEmpresa').value,
+    },
+    success:(res)=>{
+        
+        console.log(res);  
+    },
+    error:(error)=>{
+        console.log(error);
+    } 
+
+});
 
  }
 
@@ -447,3 +459,76 @@ console.log(mynombre);
      myModal.show();
  }
  
+ function verModalAdministrarIngresarProducto(){
+    let contenidoModal = document.getElementById('myModal'); 
+                 contenidoModal.innerHTML=`
+     
+                 <div class="modal-dialog">
+                 <div class="modal-content">
+                 <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Distintas Opciones a Administrar</h5>
+                 </div>
+                 <div class="modal-body">
+                 <form>
+                 <div class="mb-3">
+                     <label for="exampleInputEmail1" class="form-label">Nombre Del Producto</label>
+                     <input type="email" class="form-control" id="nombreIngresarProducto" aria-describedby="emailHelp">
+                 </div>
+                 <div class="mb-3">
+                     <label for="exampleInputPassword1" class="form-label">Descripcion Del Producto</label>
+                     <input type="text" class="form-control" id="descripcionIngresarProducto">
+                 </div>
+                 <div class="mb-3">
+                 <label for="exampleInputPassword1" class="form-label">Precio</label>
+                 <input type="number" class="form-control" id="precioIngresarProducto">
+                 </div>
+                 <div class="mb-3">
+                 <label for="exampleInputPassword1" class="form-label">Categoria</label>
+                 <input type="text" class="form-control" id="categoriaIngresarProducto">
+                 </div>
+                 <div class="mb-3">
+                 <label for="exampleInputPassword1" class="form-label">Empresa</label>
+                 <input type="text" class="form-control" id="empresaIngresarProducto">
+                 </div>
+                 <div class="mb-3">
+                 <label for="exampleInputPassword1" class="form-label">Imagen</label>
+                 <input type="text" class="form-control" id="imgIngresarProducto">
+                </div>     
+                 </form>
+                 </div>
+                 <div class="modal-footer">
+                 <button type="button" class="btn btn-cerrar" data-bs-dismiss="modal">Cerrar</button>
+                 <button type="button" class="btn btn-ver" onclick="btnIngresarProducto()" data-bs-dismiss="modal">Ingresar</button>
+                 </div>
+                 </div>
+                 </div>    
+             `;
+         
+ 
+ 
+     const myModal = new bootstrap.Modal(document.getElementById('myModal'));
+     myModal.show();
+ }
+
+ function btnIngresarProducto(){
+    $.ajax({
+        url: "/administracion/nuevoProducto", 
+        method: "POST",
+        data: {
+          nombreProducto : document.getElementById('nombreIngresarProducto').value,
+          descripcion : document.getElementById('descripcionIngresarProducto').value,
+          precio: document.getElementById('precioIngresarProducto').value,
+          categoria: document.getElementById('categoriaIngresarProducto').value,
+          empresa: document.getElementById('empresaIngresarProducto').value,
+          img: document.getElementById('imgIngresarProducto').value,
+        },
+        success:(res)=>{
+            
+            console.log(res);  
+        },
+        error:(error)=>{
+            console.log(error);
+        } 
+    
+    });
+ }
