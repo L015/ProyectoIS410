@@ -1,529 +1,3 @@
-var enviosEchos = [
-    {
-        codigo:"ab0012",
-        nombreCliente:"Jose Martinez",
-        direccion:"USA,Calorina del norte",
-        horaDeEntrega:"12:30 pm",
-        fechaDeEntrega:"10/10/2022",
-        motorista:"yo",
-        productos:[
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"estufa",
-                descripcion:"ninguna",
-                precio:19090,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-    {
-        codigo:"ab0314",
-        nombreCliente:"Martin quintanilla",
-        direccion:"USA,New York",
-        horaDeEntrega:"12:30 pm",
-        fechaDeEntrega:"10/10/2022",
-        motorista:"yo",
-        productos:[
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"aire acondicionado",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-    {
-        codigo:"ab032",
-        nombreCliente:"Marcos reina",
-        direccion:"USA,Calorina del norte",
-        horaDeEntrega:"12:30 pm",
-        fechaDeEntrega:"10/10/2022",
-        motorista:"yo",
-        productos:[
-            {
-                nombreProducto:"juguete",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"aire acondicionado",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-    {
-        codigo:"ab032",
-        nombreCliente:"Marcos reina",
-        direccion:"USA,Calorina del norte",
-        horaDeEntrega:"12:30 pm",
-        fechaDeEntrega:"10/10/2022",
-        motorista:"yo",
-        productos:[
-            {
-                nombreProducto:"juguete",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"aire acondicionado",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-    {
-        codigo:"ab032",
-        nombreCliente:"Marcos reina",
-        direccion:"USA,Calorina del norte",
-        horaDeEntrega:"12:30 pm",
-        fechaDeEntrega:"10/10/2022",
-        motorista:"yo",
-        productos:[
-            {
-                nombreProducto:"juguete",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"aire acondicionado",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-    {
-        codigo:"ab032",
-        nombreCliente:"Marcos reina",
-        direccion:"USA,Calorina del norte",
-        horaDeEntrega:"12:30 pm",
-        fechaDeEntrega:"10/10/2022",
-        motorista:"yo",
-        productos:[
-            {
-                nombreProducto:"juguete",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"aire acondicionado",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-];
-
-
-var enviosNoTomados = [
-    {
-        codigo:"ab0012",
-        nombreCliente:"Jose Martinez",
-        direccion:"USA,Calorina del norte",
-        productos:[
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"estufa",
-                descripcion:"ninguna",
-                precio:19090,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-    {
-        codigo:"ab0314",
-        nombreCliente:"Martin quintanilla",
-        direccion:"USA,New York",
-        productos:[
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"aire acondicionado",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-    {
-        codigo:"ab032",
-        nombreCliente:"Marcos reina",
-        direccion:"USA,Calorina del norte",
-        productos:[
-            {
-                nombreProducto:"juguete",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"aire acondicionado",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-    {
-        codigo:"ab046",
-        nombreCliente:"Marcos reina",
-        direccion:"Mexico,Guadalajara",
-        productos:[
-            {
-                nombreProducto:"juguete",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"aire acondicionado",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-    {
-        codigo:"ab47",
-        nombreCliente:"Marcos reina",
-        direccion:"Mexico,Guadalajara",
-        productos:[
-            {
-                nombreProducto:"juguete",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"aire acondicionado",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-    {
-        codigo:"ab478",
-        nombreCliente:"Julio Iglesias",
-        direccion:"Honduras,Cortes",
-        productos:[
-            {
-                nombreProducto:"juguete",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"aire acondicionado",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-];
-
-var enviosTomadosNoEntregados = [
-    {
-        codigo:"ab0012",
-        nombreCliente:"Alex Paz",
-        direccion:"China,Honk Kong",
-        motorista:"yo",
-        procesodeEnvio:"tomada",
-
-        productos:[
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"estufa",
-                descripcion:"ninguna",
-                precio:19090,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-    {
-        codigo:"ab0314",
-        nombreCliente:"Luis Miguel",
-        direccion:"Honduras,Olancho",
-        motorista:"yo",
-        procesodeEnvio:"tomada",
-        productos:[
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"aire acondicionado",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-    {
-        codigo:"ab032",
-        nombreCliente:"Leo Messi",
-        direccion:"Argentina,Buenos Aires",
-        motorista:"yo",
-        procesodeEnvio:"tomada",
-        productos:[
-            {
-                nombreProducto:"juguete",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"aire acondicionado",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-    {
-        codigo:"ab032",
-        nombreCliente:"Marcos reina",
-        direccion:"Mexico,Guadalajara",
-        motorista:"yo",
-        procesodeEnvio:"en camino",
-        productos:[
-            {
-                nombreProducto:"juguete",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"aire acondicionado",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-    {
-        codigo:"ab032",
-        nombreCliente:"Marcos reina",
-        direccion:"Mexico,Guadalajara",
-        motorista:"yo",
-        procesodeEnvio:"en camino",
-        productos:[
-            {
-                nombreProducto:"juguete",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"aire acondicionado",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-    {
-        codigo:"ab032",
-        nombreCliente:"Marcos reina",
-        direccion:"Mexico,Guadalajara",
-        motorista:"yo",
-        procesodeEnvio:"en camino",
-        productos:[
-            {
-                nombreProducto:"juguete",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"laptop hp",
-                descripcion:"ninguna",
-                precio:1440,
-            },
-            {
-                nombreProducto:"aire acondicionado",
-                descripcion:"ninguna",
-                precio:3131,
-            },
-            {
-                nombreProducto:"televisor sonic",
-                descripcion:"ninguna",
-                precio:3131,
-            }
-        ]
-    },
-];
 
 var validacionCorreo = function(etiqueta){
     if(etiqueta.value.match(`^[a-zA-Z0-9.!#$%&'*+/=?^_{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$`)){
@@ -536,6 +10,7 @@ var validacionCorreo = function(etiqueta){
         etiqueta.classList.add('campoNoValido');
     }
 }
+
 
 var validacionContraseña = function(etiqueta){
     if(etiqueta.value.match(`^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-_]).{8,}$`)){
@@ -762,7 +237,20 @@ var verFactura = function(etiqueta){
         </div>
         <div class="modal-body">
         <i class="fa-solid fa-cart-shopping"></i>
-        ${buscarPorCodigoPedidosEchos(etiqueta.value)}
+        <section class="ProductosYPrecio">
+        <div class="productos" id="productosFacturaId">
+        Productos
+        </div>
+        <div class="precios" id="cantidadFacturaId">
+        Cantidad
+        </div>
+        <div class="precios" id="preciosFacturaId">
+        Precio
+        </div>
+        
+        </section>
+        <section class="DescripcionPedido"  id="bodyFacturaId">
+        </section> 
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-cerrar" data-bs-dismiss="modal">Cerrar</button>
@@ -772,7 +260,7 @@ var verFactura = function(etiqueta){
     
     `;
 
-
+    buscarPorCodigoPedidosEchos(etiqueta.value)
 
     const myModal = new bootstrap.Modal(document.getElementById('myModal'));
     myModal.show();
@@ -780,144 +268,247 @@ var verFactura = function(etiqueta){
 
 
 var buscarPorCodigoPedidosEchos = function(codigo){
-for (let index = 0; index < enviosEchos.length; index++) {
-    if(enviosEchos[index].codigo==codigo){
 
+        let cadenaProductos=document.getElementById('productosFacturaId');
+        let cadenaPrecios=document.getElementById('preciosFacturaId');
+        let contenidotag=document.getElementById('bodyFacturaId');
+        let cadenaCantidad=document.getElementById('cantidadFacturaId');
+
+
+          $.ajax({
+            url: "/motoristas/pedidos", 
+            method: "GET",
+            dataType: "json",
+            success:(res)=>{
+               
+                    res.forEach(element => {   
+                        if (element.numeroPedido==codigo) {
+                            contenidotag.innerHTML=`
+                             
+                            <div>
+                            Nombre Del Cliente: ${element.nombreCliente}
+                            </div>
+                            <div>
+                            Direccion: ${element.ubicacion}
+                            </div>
+                            <div>
+                            Nombre Del Motorista: ${element.conductor}
+                            </div>
+                            <div>
+                            Fecha De Entrega: ${element.fecha}
+                            </div>
     
-        let cadenaProductos='';
-        let cadenaPrecios='';
-
-        enviosEchos[index].productos.forEach(element => {
-            cadenaProductos+=`
-            <div class="producto">
-            ${element.nombreProducto}
-            </div>
-            `
-            cadenaPrecios+=`
-            <div class="precio">
-            ${element.precio}
-            </div>
-            `
+                            `
+                            ;                                      
+                        }            
+                  })
+             },
+            error:(error)=>{
+                console.log(error);
+            } 
         });
 
 
 
-        let contenidotag=`
-        <section class="ProductosYPrecio">
-        <div class="productos">
-        Productos
-        ${cadenaProductos}
-        </div>
-        <div class="precios">
-        Precio
-        ${cadenaPrecios}
-        </div>
-        </section>
-        <section class="DescripcionPedido">
-        <div>
-        Nombre Del Cliente: ${enviosEchos[index].nombreCliente}
-        </div>
-        <div>
-        Direccion: ${enviosEchos[index].direccion}
-        </div>
-        <div>
-        Nombre Del Motorista: ${enviosEchos[index].motorista}
-        </div>
-        <div>
-        Fecha De Entrega: ${enviosEchos[index].fechaDeEntrega}
-        </div>
-        <div>
-        Hora De Entrega: ${enviosEchos[index].horaDeEntrega}
-        </div>
-        </section> 
-        `
-        ;
-
-        return contenidotag;
-    }
-}
+        $.ajax({
+            url: "/motoristas/productosPedido", 
+            method: "GET",
+            dataType: "json",
+            success:(res)=>{
+                    res.forEach(element => {   
+                        if(element.numeroPedido==codigo){
+                            cadenaProductos.innerHTML+=`
+                            <div class="producto">
+                            ${element.nombreProducto}
+                            </div>
+                            `;
+                            cadenaPrecios.innerHTML+=`
+                            <div class="precio">
+                            ${element.precio}
+                            </div>  
+                            
+                            `   ;
+                            cadenaCantidad.innerHTML+=`
+                            <div class="precio">
+                            ${element.cantidad}
+                            </div>  
+                            
+                            `                           
+                        } 
+                                                                
+                         })
+                         
+             },
+            error:(error)=>{
+                console.log(error);
+            } 
+        });
 }
 
 
 var verPedidoDisponible = function(etiqueta){
-
+    $.ajax({
+        url: "/motoristas/pedidos", 
+        method: "GET",
+        dataType: "json",
+        success:(res)=>{
+           
+                res.forEach(element => {   
+                    if (element.numeroPedido==etiqueta.value) {
     let contenidoModal = document.getElementById('myModal');
 
-    contenidoModal.innerHTML=`
+                        contenidoModal.innerHTML=`
+                        
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Pedido  ${etiqueta.value}</h5>
+                            </div>
+                            <div class="modal-body">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <section class="ProductosYPrecio">
+                            <div class="productos" id="productosFacturaId">
+                            Productos
+                            </div>
+                            <div class="precios" id="cantidadFacturaId">
+                            Cantidad
+                            </div>
+                            <div class="precios" id="preciosFacturaId">
+                            Precio
+                            </div>
+                            
+                            </section>
+                            <section class="DescripcionPedido"  id="bodyFacturaId">
+                            </section> 
+                            
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-cerrar" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-aceptar" onclick="tomarOrdenPedidoDisponible('${element._id}')" data-bs-dismiss="modal">Tomar Orden</button>
+                            </div>
+                            </div>
+                            </div>    
+                        
+                        `;
+                    
+                    
+                        buscarPorCodigoPedidoDisponible(etiqueta.value);
+                        const myModal = new bootstrap.Modal(document.getElementById('myModal'));
+                        myModal.show();
+                        ;                                      
+                    }            
+                })
+           },
+          error:(error)=>{
+              console.log(error);
+          } 
+      });
+
+  
+}
+
+var tomarOrdenPedidoDisponible = function(codigo){
+    $.ajax({
+        url: "/motoristas/pedidos", 
+        method: "GET",
+        dataType: "json",
+        success:(res)=>{
+           
+                res.forEach(element => {   
+                    if (element.numeroPedido==codigo) {
+                        $.ajax({
+                            url: `/motoristas/pedidos/${codigo}/${element.conductor}/Tomada`, 
+                            method: "PUT",
+                            dataType: "json",
+                            success:(res)=>{
+                            },
+                            error:(error)=>{
+                                console.log(error);
+                            } 
+                        });            
+                    }            
+              })
+         },
+        error:(error)=>{
+            console.log(error);
+        } 
+    });
+
+
     
-        <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Pedido  ${etiqueta.value}</h5>
-        </div>
-        <div class="modal-body">
-        <i class="fa-solid fa-cart-shopping"></i>
-        ${buscarPorCodigoPedidoDisponible(etiqueta.value)}
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-cerrar" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-aceptar" data-bs-dismiss="modal">Tomar Orden</button>
-        </div>
-        </div>
-        </div>    
-    
-    `;
-
-
-
-    const myModal = new bootstrap.Modal(document.getElementById('myModal'));
-    myModal.show();
 }
 
 var buscarPorCodigoPedidoDisponible = function(codigo){
-    for (let index = 0; index < enviosNoTomados.length; index++) {
-        if(enviosNoTomados[index].codigo==codigo){
+
     
-        
-            let cadenaProductos='';
-            let cadenaPrecios='';
-    
-            enviosNoTomados[index].productos.forEach(element => {
-                cadenaProductos+=`
-                <div class="producto">
-                ${element.nombreProducto}
-                </div>
-                `
-                cadenaPrecios+=`
-                <div class="precio">
-                ${element.precio}
-                </div>
-                `
-            });
-    
-    
-    
-            let contenidotag=`
-            <section class="ProductosYPrecio">
-            <div class="productos">
-            Productos
-            ${cadenaProductos}
-            </div>
-            <div class="precios">
-            Precio
-            ${cadenaPrecios}
-            </div>
-            </section>
-            <section class="DescripcionPedido">
-            <div>
-            Nombre Del Cliente: ${enviosNoTomados[index].nombreCliente}
-            </div>
-            <div>
-            Direccion: ${enviosNoTomados[index].direccion}
-            </div>
-            </section> 
-            `
-            ;
-    
-            return contenidotag;
-        }
-    }
-    }
+    let cadenaProductos=document.getElementById('productosFacturaId');
+    let cadenaPrecios=document.getElementById('preciosFacturaId');
+    let contenidotag=document.getElementById('bodyFacturaId');
+    let cadenaCantidad=document.getElementById('cantidadFacturaId');
+
+    $.ajax({
+        url: "/motoristas/productosPedido", 
+        method: "GET",
+        dataType: "json",
+        success:(res)=>{
+                res.forEach(element => {   
+                    if(element.numeroPedido==codigo){
+                        cadenaProductos.innerHTML+=`
+                        <div class="producto">
+                        ${element.nombreProducto}
+                        </div>
+                        `;
+                        cadenaPrecios.innerHTML+=`
+                        <div class="precio">
+                        ${element.precio}
+                        </div>  
+                        
+                        `   ;
+                        cadenaCantidad.innerHTML+=`
+                        <div class="precio">
+                        ${element.cantidad}
+                        </div>  
+                        
+                        `                            
+                    } 
+                                                            
+                     })
+                     
+         },
+        error:(error)=>{
+            console.log(error);
+        } 
+    });
+
+
+    $.ajax({
+        url: "/motoristas/pedidos", 
+        method: "GET",
+        dataType: "json",
+        success:(res)=>{
+           
+                res.forEach(element => {   
+                    if (element.numeroPedido==codigo) {
+                        contenidotag.innerHTML=`
+                         
+                        <div>
+                        Nombre Del Cliente: ${element.nombreCliente}
+                        </div>
+                        <div>
+                        Direccion: ${element.ubicacion}
+                        </div>
+                        <div>
+                        `
+                        ;                                      
+                    }            
+              })
+         },
+        error:(error)=>{
+            console.log(error);
+        } 
+    });
+}
+
 
  var verPedidoPendiente = function(etiqueta){
 
@@ -932,7 +523,21 @@ var buscarPorCodigoPedidoDisponible = function(codigo){
             </div>
             <div class="modal-body">
             <i class="fa-solid fa-cart-shopping"></i>
-            ${buscarPorCodigoPedidoPendiente(etiqueta.value)}
+            <section class="ProductosYPrecio">
+            <div class="productos" id="productosFacturaId">
+            Productos
+            </div>
+            <div class="precios" id="cantidadFacturaId">
+            Cantidad
+            </div>
+            <div class="precios" id="preciosFacturaId">
+            Precio
+            </div>
+            
+            </section>
+            <section class="DescripcionPedido"  id="bodyFacturaId">
+            </section>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-cerrar" data-bs-dismiss="modal">Cerrar</button>
@@ -943,64 +548,86 @@ var buscarPorCodigoPedidoDisponible = function(codigo){
         
         `;
     
-    
+        buscarPorCodigoPedidoPendiente(etiqueta.value);
     
         const myModal = new bootstrap.Modal(document.getElementById('myModal'));
         myModal.show();
+
+        
     }
     
 var buscarPorCodigoPedidoPendiente = function(codigo){
-        for (let index = 0; index < enviosTomadosNoEntregados.length; index++) {
-            if(enviosTomadosNoEntregados[index].codigo==codigo){
+
+    let cadenaProductos=document.getElementById('productosFacturaId');
+    let cadenaPrecios=document.getElementById('preciosFacturaId');
+    let contenidotag=document.getElementById('bodyFacturaId');
+    let cadenaCantidad=document.getElementById('cantidadFacturaId');
         
-            
-                let cadenaProductos='';
-                let cadenaPrecios='';
-        
-                enviosTomadosNoEntregados[index].productos.forEach(element => {
-                    cadenaProductos+=`
-                    <div class="producto">
-                    ${element.nombreProducto}
-                    </div>
-                    `
-                    cadenaPrecios+=`
-                    <div class="precio">
-                    ${element.precio}
-                    </div>
-                    `
-                });
-        
-        
-        
-                let contenidotag=`
-                <section class="ProductosYPrecio">
-                <div class="productos">
-                Productos
-                ${cadenaProductos}
-                </div>
-                <div class="precios">
-                Precio
-                ${cadenaPrecios}
-                </div>
-                </section>
-                <section class="DescripcionPedido">
-                <div>
-                Nombre Del Cliente: ${enviosTomadosNoEntregados[index].nombreCliente}
-                </div>
-                <div>
-                Direccion: ${enviosTomadosNoEntregados[index].direccion}
-                </div>
-                <div>
-                Motorista: ${enviosTomadosNoEntregados[index].motorista}
-                </div>
-                </section> 
-                `
-                ;
-        
-                return contenidotag;
-            }
-        }
-        }
+    $.ajax({
+        url: "/motoristas/pedidos", 
+        method: "GET",
+        dataType: "json",
+        success:(res)=>{
+           
+                res.forEach(element => {   
+                    if (element.numeroPedido==codigo) {
+                        contenidotag.innerHTML=`
+                         
+                        <div>
+                        Nombre Del Cliente: ${element.nombreCliente}
+                        </div>
+                        <div>
+                        Direccion: ${element.ubicacion}
+                        </div>
+                        <div>
+                        Nombre Del Motorista: ${element.conductor}
+                        </div>
+                        `
+                        ;                                      
+                    }            
+              })
+         },
+        error:(error)=>{
+            console.log(error);
+        } 
+    });
+
+
+
+    $.ajax({
+        url: "/motoristas/productosPedido", 
+        method: "GET",
+        dataType: "json",
+        success:(res)=>{
+                res.forEach(element => {   
+                    if(element.numeroPedido==codigo){
+                        cadenaProductos.innerHTML+=`
+                        <div class="producto">
+                        ${element.nombreProducto}
+                        </div>
+                        `;
+                        cadenaPrecios.innerHTML+=`
+                        <div class="precio">
+                        ${element.precio}
+                        </div>  
+                        
+                        `   ;
+                        cadenaCantidad.innerHTML+=`
+                        <div class="precio">
+                        ${element.cantidad}
+                        </div>  
+                        
+                        `                            
+                    } 
+                                                            
+                     })
+                     
+         },
+        error:(error)=>{
+            console.log(error);
+        } 
+    });
+}
 
 
 var  verFormularioProcesoEnvio = function(codigo){
