@@ -269,9 +269,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body" >
-                <form class="row g-3 needs-validation" id="login"> 
+                <form class="row g-3" id="login"> 
                   <div class="mb-3">
-                    <label  class="form-label">Nombre</label>
+                    <label  class="form-label">Nombre completo</label>
                     <input type="email" class="form-control" id="inputName" aria-describedby="emailHelp" onkeyup="validarCampoVacio(this)">
                   </div>
                   <div class="mb-3 container">
@@ -281,7 +281,7 @@
                   <div class="mb-3">
                     <label for="fechaExpiracion" class="form-label">Fecha de expiración</label>
                     <div class="row justify-content-evenly" id="fechaExpiracion" >
-                      <input type="number" class="col-4 fecha" placeholder="Mes">
+                      <input type="number" class="col-4 fecha" placeholder="Mes"> 
                       <input type="number" class="col-4 fecha" placeholder="Año">
                     </div>
                   </div>
@@ -294,13 +294,15 @@
                   </div>
                   <div class="mb-3">
                     <label for="ubicacion" class="form-laber">Elija su ubicación</label>
+                    <input type="text" id="ubicacionPedido" class="form-control" placeholder="Ubicación">
+                    <br>
                     <div class="row" id="ubicacion">
                       <img src="img/mapa.jpg" alt="">
                     </div>
                   </div>
                   <hr>
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary" >Confirmar</button>
+                <button type="submit" class="btn btn-primary" onclick="agregarPedido()">Confirmar</button>
                 </form>
               </div>
             </div>
