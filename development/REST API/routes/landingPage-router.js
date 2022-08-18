@@ -4,6 +4,7 @@ var empresaSchema = require('../models/empresas.schema');
 var productoSchema = require('../models/productos.schema');
 var categoriaSchema = require ('../models/categorias.schema');
 var pedidosproductosSchema = require('../models/pedidosproductos.schema');
+var pedidosSchema  = require('../models/pedidos.schema');
 const { default: mongoose } = require('mongoose');
 const bodyParser = require('body-parser');
 var router = express.Router();
@@ -155,11 +156,18 @@ router.post('/agregarCarrito' , function(req,res){
     });
     
     });
+
+router.post('/agregarPedido' , function(req,res){
+    pedidosSchema.insertMany(req.body)
+    .then((data)=>{
+        res.send(data);
+        res.end();
+    }).catch((error)=>{
+        res.send(error);
+        res.end();
+    });
     
-
-
-
-
+    });
 
 
 module.exports = router;
