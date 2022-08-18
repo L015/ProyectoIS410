@@ -8,4 +8,4 @@ var esquema = new mongoose.Schema({
 });
                                 
                                 //nombre de la coleccion
-module.exports = mongoose.model('pedidosProductos', esquema);
+module.exports = mongoose.model('pedidosproductos', esquema);
