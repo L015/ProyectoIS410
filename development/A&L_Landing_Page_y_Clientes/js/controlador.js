@@ -29,7 +29,7 @@ var validacionContraseña = function(etiqueta){
 }
 
 var confirmarContraseña = function(etiqueta){
-  let contraseña = document.getElementById('inputPassword');
+  let contraseña = document.getElementById('inputPasswordR');
   if(etiqueta.value==(contraseña.value)){
       etiqueta.classList.remove('campoValido');
       etiqueta.classList.remove('campoNoValido');
@@ -42,8 +42,8 @@ var confirmarContraseña = function(etiqueta){
 }
 
 var validarCamposVaciosInicioSesion = function(){
-  let email = document.getElementById('inputEmail-login');
-  let contraseña = document.getElementById('inputPassword-login');
+  let email = document.getElementById('inputEmailL');
+  let contraseña = document.getElementById('inputPasswordL');
 
   if (email.value=='') {
       email.classList.remove('campoValido');
@@ -67,11 +67,11 @@ var validarCamposVaciosInicioSesion = function(){
 }
 
 var validarCamposVaciosCrearCuenta = function(){
-  let email = document.getElementById('inputEmail');
-  let contraseña = document.getElementById('inputPassword');
-  let nombre=document.getElementById('inputName');
-  let apellido=document.getElementById('inputLastName');
-  let confirmarcontrasenia=document.getElementById('confirmPassword');
+  let email = document.getElementById('inputEmailR');
+  let contraseña = document.getElementById('inputPasswordR');
+  let nombre=document.getElementById('inputNameR');
+  let apellido=document.getElementById('inputLastNameR');
+  let confirmarcontrasenia=document.getElementById('confirmPasswordR');
 
   if (email.value=='') {
       email.classList.remove('campoValido');
@@ -114,13 +114,13 @@ var validarCamposVaciosCrearCuenta = function(){
   }
 
   if(confirmarcontrasenia.value==''){
-      confirmarcontrasenia.classList.remove('campoValido');
-      confirmarcontrasenia.classList.remove('campoNoValido');
-      confirmarcontrasenia.classList.add('campoNoValido');
+      confirmarcontrasenia.classList.remove('campoValidoR');
+      confirmarcontrasenia.classList.remove('campoNoValidoR');
+      confirmarcontrasenia.classList.add('campoNoValidoR');
   }else{
-      confirmarcontrasenia.classList.remove('campoValido');
-      confirmarcontrasenia.classList.remove('campoNoValido');
-      confirmarcontrasenia.classList.add('campoValido');
+      confirmarcontrasenia.classList.remove('campoValidoR');
+      confirmarcontrasenia.classList.remove('campoNoValidoR');
+      confirmarcontrasenia.classList.add('campoValidoR');
   }
 
 }
@@ -415,24 +415,28 @@ function cargarEmpresas(){
 }
 
 function cargarCarrito(){
-  
-    
+  var suma = 0;
 
-    for(let i = 0 ;i<3;i++){
-        document.getElementById('carritoPag').innerHTML = '';
-        for(let j = 0 ; j< 4;j++){
+  $.ajax({
+    url: `/pedidos`, 
+    method: "GET",
+    dataType: "json",
+    success:(res)=>{
+      
+      document.getElementById('carritoPag').innerHTML = '';
+      for(let i = 0 ;i<res.length;i++){
 
             document.getElementById('carritoPag').innerHTML +=`   
             <div class="col">
             <div class="card " style="max-width: 600px;">
             <div class="row g-0" >
               <div class="col-md-4 imagenCardCarrito">
-                <img src="" class="img-fluid rounded-start imagenEmpresa  " alt="...">
+                <img src="${res[i].img}" class="img-fluid rounded-start imagenEmpresa  " alt="...">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Prueba</h5>
-                  <p class="card-text">Prueba</p>
+                  <h5 class="card-title">${res[i].nombreProducto}</h5>
+                  <p class="card-text">$${res[i].precio}</p>
                   <p class="card-text"><small class="text-muted"></p>
                 </div>
               </div>
@@ -440,24 +444,34 @@ function cargarCarrito(){
           </div>
           </div>
               `
+          suma = suma + res[i].precio;
         }
       
-    }
-
+      
     document.getElementById('carritoConfirmar').innerHTML = `<div class="col-12">
-    <h3>Total de compra: 99999$</h3>
+    <h3>Total de compra: $${suma} </h3>
   </div>
   <div style="margin-top:1rem ;">
     <button  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalConfirmarCompra">Confirmar Compra</button>
     <br><br>
   </div>`
  
+             
+    },
+    error:(error)=>{
+        console.log(error);
+    } 
+});     
+
+
+  
+
    
     document.getElementById('cat').style.display = 'none';    
     document.getElementById('landing').style.display = 'none';   
     document.getElementById('emp').style.display = 'none'; 
     document.getElementById('car').style.display = 'block'; 
-    document.getElementById('botonEmpresas').style = 'color: var(--bs-navbar-active-color);';
+    document.getElementById('botonEmpresas').style = 'color: var(--bs-navbar-hover-color);';
     document.getElementById('botonCategorias').style = 'color: var(--bs-navbar-hover-color);';
     document.getElementById('botonInicio').style = 'color: var(--bs-nav-link-hover-color);';
 }
@@ -478,15 +492,16 @@ function modalProductos(id){
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">${producto.nombreProducto}</h5>
+                      <h5 class="modal-title" id="nombreProducto" value="${producto.nombreProducto}">${producto.nombreProducto}</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                    Precio ${producto.precio}
+                    <img src="${producto.img}" id="img" value="${producto.img}">
+                    <div class="modal-body" id="precio" value="${producto.precio}"  style="text-align: center">
+                    <strong>Precio: $${producto.precio}</strong>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                      <button type="button" class="btn btn-primary">Agregar al carrito</button>
+                      <button type="button" class="btn btn-primary" onclick="carritoAgregar()">Agregar al carrito</button>
                     </div>
                   </div>
                 </div>
@@ -525,7 +540,7 @@ function crearCuenta(){
 
 }
 
-function kek(){
+function reset(){
   document.getElementById('botonIngresar').removeAttribute("data-bs-dismiss",'modal');
 }
 
@@ -538,7 +553,6 @@ function kek(){
       method: "GET",
       dataType: "json",
       success:(res)=>{
-        console.log(res);
 
         for(let i = 0; i<res.length ; i++){
           const emailU = res[i].email;
@@ -552,5 +566,31 @@ function kek(){
           console.log(error);
       } 
   });   
+ }
+
+ 
+
+
+ function carritoAgregar(){
+  var i = Math.floor(Math.random(1,500)*10);
+  
+  $.ajax({
+    url: "/agregarCarrito", 
+    method: "Post",
+    data: {
+    numeroPedido: i,
+    nombreProducto:   document.getElementById('nombreProducto').getAttribute("value"),  
+    precio:   document.getElementById('precio').getAttribute("value"),  
+    cantidad: 1,
+    img: document.getElementById('img').getAttribute("value")
+    },
+    success:(res)=>{
+        
+        console.log(res);  
+    },
+    error:(error)=>{
+        console.log(error);
+    } 
+});
  }
 
