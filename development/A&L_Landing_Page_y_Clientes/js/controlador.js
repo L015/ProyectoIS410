@@ -594,3 +594,30 @@ function reset(){
 });
  }
 
+
+ function agregarPedido(){
+
+  let date = new Date();
+  let output = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear();
+
+  var i = Math.floor(Math.random(1,500)*10);
+  $.ajax({
+    url: "/agregarPedido", 
+    method: "Post",
+    data: {
+      numeroPedido: i,
+      nombreCliente : document.getElementById('inputName').value,
+      ubicacion: document.getElementById('ubicacionPedido').value,
+      estado: 'No aceptado',
+      conductor: '',
+      fecha: output
+    },
+    success:(res)=>{
+        
+        console.log(res);  
+    },
+    error:(error)=>{
+        console.log(error);
+    } 
+});
+ }
