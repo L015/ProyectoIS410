@@ -1,14 +1,20 @@
 var express =require('express');
+var usuarioSchema = require('../models/usuario.schema');
+var empresaSchema = require('../models/empresas.schema');
+var productoSchema = require('../models/productos.schema');
+var pedidosproductosSchema = require('../models/pedidosproductos.schema');
+const { default: mongoose } = require('mongoose');
+const bodyParser = require('body-parser');
 var router = express.Router();
-var usuarioModel=require('../models/usuario.schema');
-var empresasModel=require('../models/empresas.schema');
-var productosModel=require('../models/productos.schema');
-var mongoose=require('mongoose');
 
 
 router.use(express.static('A&L administracion'));
+
+router.use(express.urlencoded({extended:true}));
+router.use(express.json());
+
 router.get('/usuarios/',function(req,res){
-    usuarioModel.find({}).then((data)=>{
+    usuarioSchema.find({}).then((data)=>{
         res.send(data);
         res.end();
     })
@@ -18,7 +24,7 @@ router.get('/usuarios/',function(req,res){
     })
 });
 router.put('/usuarios/:id/:validacion',function(req,res){
-    usuarioModel.updateOne({"_id":req.params.id},{$set:{"validado":req.params.validacion}}).then((data)=>{
+    usuarioSchema.updateOne({"_id":req.params.id},{$set:{"validado":req.params.validacion}}).then((data)=>{
         res.send(data);
         res.end();
     })
@@ -29,7 +35,7 @@ router.put('/usuarios/:id/:validacion',function(req,res){
 });
 
 router.get('/empresas/',function(req,res){
-    empresasModel.find({}).then((data)=>{
+    empresaSchema.find({}).then((data)=>{
         res.send(data);
         res.end();
     })
@@ -51,7 +57,7 @@ router.get('/empresas/',function(req,res){
 
 
 router.get('/productos/',function(req,res){
-    productosModel.find({}).then((data)=>{
+    productoSchema.find({}).then((data)=>{
         res.send(data);
         res.end();
     })
@@ -61,6 +67,31 @@ router.get('/productos/',function(req,res){
     })
 });
 
+
+
+router.post('/nuevaEmpresa/' , function(req,res){
+    empresaSchema.insertMany(req.body)
+    .then((data)=>{
+        res.send(data);
+        res.end();
+    }).catch((error)=>{
+        res.send(error);
+        res.end();
+    });
+    
+    });
+
+    router.post('/nuevoProducto/' , function(req,res){
+    productoSchema.insertMany(req.body)
+    .then((data)=>{
+        res.send(data);
+        res.end();
+    }).catch((error)=>{
+        res.send(error);
+        res.end();
+    });
+    
+    });
 
 
 module.exports = router;
