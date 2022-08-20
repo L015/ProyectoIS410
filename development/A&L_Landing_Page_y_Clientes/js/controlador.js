@@ -3,339 +3,224 @@ var ofertas = {
     imgCarrusel: "img/fotoCarrusel.webp",
 }
 
-var categorias = [
-    {
-        nombreCategoria: 'Juguetes',
-        productos: [
-            {
-                nombreProducto: 'Juguete 1',
-                imagenProduto: 'img/juguetes/juguete1.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Juguete 2 ',
-                imagenProduto: 'img/juguetes/juguete2.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Juguete 3',
-                imagenProduto: 'img/juguetes/juguete3.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Juguete 4',
-                imagenProduto: 'img/juguetes/juguete4.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Juguete 5',
-                imagenProduto: 'img/juguetes/juguete5.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Juguete 6',
-                imagenProduto: 'img/juguetes/juguete6.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Juguete 7',
-                imagenProduto: 'img/juguetes/juguete7.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            
-        ]
-    },
-    {
-        nombreCategoria: 'Muebles',
-        productos: [
-            {
-                nombreProducto: 'Mueble 1',
-                imagenProduto: 'img/muebles/mueble1.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
+//Validaciones
+var validacionCorreo = function(etiqueta){
+  if(etiqueta.value.match(`^[a-zA-Z0-9.!#$%&'*+/=?^_{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$`)){
+      etiqueta.classList.remove('campoValido');
+      etiqueta.classList.remove('campoNoValido');
+      etiqueta.classList.add('campoValido');
+  }else{
+      etiqueta.classList.remove('campoValido');
+      etiqueta.classList.remove('campoNoValido');
+      etiqueta.classList.add('campoNoValido');
+  }
+}
 
-            },
-            {
-                nombreProducto: 'Mueble 2 ',
-                imagenProduto: 'img/muebles/mueble2.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
+var validacionContraseña = function(etiqueta){
+  if(etiqueta.value.match(`^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-_]).{8,}$`)){
+      etiqueta.classList.remove('campoValido');
+      etiqueta.classList.remove('campoNoValido');
+      etiqueta.classList.add('campoValido');
+  }else{
+      etiqueta.classList.remove('campoValido');
+      etiqueta.classList.remove('campoNoValido');
+      etiqueta.classList.add('campoNoValido');
+  }
+}
 
-            },
-            {
-                nombreProducto: 'Mueble 3',
-                imagenProduto: 'img/muebles/mueble3.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
+var confirmarContraseña = function(etiqueta){
+  let contraseña = document.getElementById('inputPasswordR');
+  if(etiqueta.value==(contraseña.value)){
+      etiqueta.classList.remove('campoValido');
+      etiqueta.classList.remove('campoNoValido');
+      etiqueta.classList.add('campoValido');
+  }else{
+      etiqueta.classList.remove('campoValido');
+      etiqueta.classList.remove('campoNoValido');
+      etiqueta.classList.add('campoNoValido');
+  }
+}
 
-            },
-            {
-                nombreProducto: 'Mueble 4',
-                imagenProduto: 'img/muebles/mueble4.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
+var validarCamposVaciosInicioSesion = function(){
+  let email = document.getElementById('inputEmailL');
+  let contraseña = document.getElementById('inputPasswordL');
 
-            },
-            {
-                nombreProducto: 'Mueble 5',
-                imagenProduto: 'img/muebles/mueble5.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
+  if (email.value=='') {
+      email.classList.remove('campoValido');
+      email.classList.remove('campoNoValido');
+      email.classList.add('campoNoValido');
+  }else{
+      email.classList.remove('campoValido');
+      email.classList.remove('campoNoValido');
+      email.classList.add('campoValido');
+  }
 
-            },
-            {
-                nombreProducto: 'Mueble 6',
-                imagenProduto: 'img/muebles/mueble6.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
+  if (contraseña.value=='') {
+      contraseña.classList.remove('campoValido');
+      contraseña.classList.remove('campoNoValido');
+      contraseña.classList.add('campoNoValido');
+  }else{
+      contraseña.classList.remove('campoValido');
+      contraseña.classList.remove('campoNoValido');
+      contraseña.classList.add('campoValido');
+  }
+}
 
-            },
-            {
-                nombreProducto: 'Mueble 7',
-                imagenProduto: 'img/muebles/mueble7.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
+var validarCamposVaciosCrearCuenta = function(){
+  let email = document.getElementById('inputEmailR');
+  let contraseña = document.getElementById('inputPasswordR');
+  let nombre=document.getElementById('inputNameR');
+  let apellido=document.getElementById('inputLastNameR');
+  let confirmarcontrasenia=document.getElementById('confirmPasswordR');
 
-            },
-        ]
-    },
-    {
-        nombreCategoria: 'Tecnologia',
-        productos: [
-             {
-                nombreProducto: 'Electronico 1',
-                imagenProduto: 'img/electronicos/electronico1.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Electronico 2 ',
-                imagenProduto: 'img/electronicos/electronico2.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Electronico 3',
-                imagenProduto: 'img/electronicos/electronico3.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Electronico 4',
-                imagenProduto: 'img/electronicos/electronico4.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Electronico 5',
-                imagenProduto: 'img/electronicos/electronico5.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Electronico 6',
-                imagenProduto: 'img/electronicos/electronico6.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Electronico 7',
-                imagenProduto: 'img/electronicos/electronico7.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-        ]
-    },
-    {
-        nombreCategoria: 'Zapatos',
-        productos: [
-             {
-                nombreProducto: 'Zapatos 1',
-                imagenProduto: 'img/zapatos/zapato1.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Zapatos 2 ',
-                imagenProduto: 'img/zapatos/zapato2.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Zapatos 3',
-                imagenProduto: 'img/zapatos/zapato3.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Zapatos 4',
-                imagenProduto: 'img/zapatos/zapato4.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Zapatos 5',
-                imagenProduto: 'img/zapatos/zapato5.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Zapatos 6',
-                imagenProduto: 'img/zapatos/zapato6.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-            {
-                nombreProducto: 'Zapatos 7',
-                imagenProduto: 'img/zapatos/zapato7.png',
-                precio: '9999$',
-                descripcionProducto: 'Producto en tu carrito',
-            },
-        ]
-    },
-]
+  if (email.value=='') {
+      email.classList.remove('campoValido');
+      email.classList.remove('campoNoValido');
+      email.classList.add('campoNoValido');
+  }else{
+      email.classList.remove('campoValido');
+      email.classList.remove('campoNoValido');
+      email.classList.add('campoValido');
+  }
 
-var empresas = [
-    {
-        categoria: 'Electronicos',
-        empresasTipos: [
-            {
-                nombreEmpresa: ' Asus ',
-                imagenEmpresa: 'img/empresas/asus.png',
-                descripcionEmpresa: 'Esta es una empresa de productos tecnologicos',
-            },
-            {
-                nombreEmpresa: ' EVGA ',
-                imagenEmpresa: 'img/empresas/evga.png',
-                descripcionEmpresa: 'Esta es una empresa de productos tecnologicos',
-            },
-            {
-                nombreEmpresa: ' HP ',
-                imagenEmpresa: 'img/empresas/hp.png',
-                descripcionEmpresa: 'Esta es una empresa de productos tecnologicos',
-            },
-            {
-                nombreEmpresa: ' Logitech ',
-                imagenEmpresa: 'img/empresas/logitech.png',
-                descripcionEmpresa: 'Esta es una empresa de productos tecnologicos',
-            },
-            {
-                nombreEmpresa: ' Razer ',
-                imagenEmpresa: 'img/empresas/razer.png',
-                descripcionEmpresa: 'Esta es una empresa de productos tecnologicos',
-            },
-            {
-                nombreEmpresa: ' Samsung ',
-                imagenEmpresa: 'img/empresas/samsung.png',
-                descripcionEmpresa: 'Esta es una empresa de productos tecnologicos',
-            },
-        ]
-    },
-    {
-        categoria: 'Electronicos',
-        empresasTipos: [
-            {
-                nombreEmpresa: ' Asus ',
-                imagenEmpresa: 'img/empresas/asus.png',
-            },
-            {
-                nombreEmpresa: ' Asus ',
-                imagenEmpresa: 'img/empresas/evga.png',
-            },
-            {
-                nombreEmpresa: ' Asus ',
-                imagenEmpresa: 'img/empresas/hp.png',
-            },
-            {
-                nombreEmpresa: ' Asus ',
-                imagenEmpresa: 'img/empresas/logitech.png',
-            },
-            {
-                nombreEmpresa: ' Asus ',
-                imagenEmpresa: 'img/empresas/razer.png',
-            },
-            {
-                nombreEmpresa: ' Asus ',
-                imagenEmpresa: 'img/empresas/samsung.png',
-            },
-        ]
-    },
-]
+  if (contraseña.value=='') {
+      contraseña.classList.remove('campoValido');
+      contraseña.classList.remove('campoNoValido');
+      contraseña.classList.add('campoNoValido');
+  }else{
+      contraseña.classList.remove('campoValido');
+      contraseña.classList.remove('campoNoValido');
+      contraseña.classList.add('campoValido');
+  }
+
+  if (nombre.value=='') {
+      nombre.classList.remove('campoValido');
+      nombre.classList.remove('campoNoValido');
+      nombre.classList.add('campoNoValido');
+  }else{
+      nombre.classList.remove('campoValido');
+      nombre.classList.remove('campoNoValido');
+      nombre.classList.add('campoValido');
+  }
+
+  if(apellido.value==''){
+      apellido.classList.remove('campoValido');
+      apellido.classList.remove('campoNoValido');
+      apellido.classList.add('campoNoValido');
+  }else{
+      apellido.classList.remove('campoValido');
+      apellido.classList.remove('campoNoValido');
+      apellido.classList.add('campoValido');
+  }
+
+  if(confirmarcontrasenia.value==''){
+      confirmarcontrasenia.classList.remove('campoValidoR');
+      confirmarcontrasenia.classList.remove('campoNoValidoR');
+      confirmarcontrasenia.classList.add('campoNoValidoR');
+  }else{
+      confirmarcontrasenia.classList.remove('campoValidoR');
+      confirmarcontrasenia.classList.remove('campoNoValidoR');
+      confirmarcontrasenia.classList.add('campoValidoR');
+  }
+
+}
+
+var validarCampoVacio = function(etiqueta){
+if(etiqueta.value==''){
+  etiqueta.classList.remove('campoValido');
+  etiqueta.classList.remove('campoNoValido');
+  etiqueta.classList.add('campoNoValido');
+} else{
+  etiqueta.classList.remove('campoValido');
+  etiqueta.classList.remove('campoNoValido');
+  etiqueta.classList.add('campoValido');
+}  
+}
 
 
-console.log(categorias);
+
 
 //Crea la landing
+function landing(){
 
-for(let i = 1; i<4 ; i++){
-    document.getElementById('oferta '+i).innerHTML += `
-    <img src="${ofertas.imagenOferta}" class="col-12">
-    `
-}
+    $.ajax({
+        url: "/categorias", 
+        method: "GET",
+        dataType: "json",
+        success:(res)=>{      
+            for(let i = 1; i<4 ; i++){
+                document.getElementById('oferta '+i).innerHTML += `
+                <img src="${ofertas.imagenOferta}" class="col-12">
+                `
+            }
+            
+            
+                document.getElementById('fotosCarrusel').innerHTML += `
+                <div class="carousel-item active" >
+                <img src="${ofertas.imgCarrusel}" class="d-block w-100" alt="...">          
+                </div>
+                <div class="carousel-item"  >
+                <img src="${ofertas.imgCarrusel}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" >
+                <img src="${ofertas.imgCarrusel}" class="d-block w-100" alt="...">         
+                </div>       
+                `;
+            
+                document.getElementById('fotosCarrusel2').innerHTML += `
+                <div class="carousel-item active" >
+                <img src="${ofertas.imgCarrusel}" class="d-block w-100" alt="...">          
+                </div>
+                <div class="carousel-item"  >
+                <img src="${ofertas.imgCarrusel}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" >
+                <img src="${ofertas.imgCarrusel}" class="d-block w-100" alt="...">         
+                </div>       
+                `;
+            
+                document.getElementById('productosLanding').innerHTML += '';
 
-
-    document.getElementById('fotosCarrusel').innerHTML += `
-    <div class="carousel-item active" >
-    <img src="${ofertas.imgCarrusel}" class="d-block w-100" alt="...">          
-    </div>
-    <div class="carousel-item"  >
-    <img src="${ofertas.imgCarrusel}" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item" >
-    <img src="${ofertas.imgCarrusel}" class="d-block w-100" alt="...">         
-    </div>       
-    `;
-
-    document.getElementById('fotosCarrusel2').innerHTML += `
-    <div class="carousel-item active" >
-    <img src="${ofertas.imgCarrusel}" class="d-block w-100" alt="...">          
-    </div>
-    <div class="carousel-item"  >
-    <img src="${ofertas.imgCarrusel}" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item" >
-    <img src="${ofertas.imgCarrusel}" class="d-block w-100" alt="...">         
-    </div>       
-    `;
-
-
-    for(let i =0 ; i<categorias.length ; i++){
-        document.getElementById('productosLanding').innerHTML +=`
-        <div class="col float-end">
-            <div class="card" >
-            <h3 class="card-title mx-auto">${categorias[i].nombreCategoria}</h3>
-            <div class="row" id="categoriaL${i}">
-            </div>
-            </div>
-            </div>
-        `
-
-    }
+                for(let i =0 ; i<res.length ; i++){
+                    document.getElementById('productosLanding').innerHTML +=`
+                    <div class="col float-end" >
+                        <div class="card" >
+                        <h3 class="card-title mx-auto">${res[i].nombreCategoria}</h3>
+                        <div class="row" id="categoriaL${res[i].nombreCategoria}">
+                        </div>
+                        </div>
+                        </div>
+                    `
+            
+                }
+            
+                for(let i =0 ; i<res.length ; i++){
+                   
+                    document.getElementById('categoriaL'+res[i].nombreCategoria).innerHTML +=`
+                          
+                          <img class="col-6 mx-auto imgLanding" src="${res[i].img}" class="card-img-top" alt="...">
+                         
+                          
+                       
+                      `
+                }
+            
+        },
+        error:(error)=>{
+            console.log(error);
+        } 
+    });
     
-    for(let i =0 ; i<categorias.length ; i++){
-        for(let j =0 ; j<3 ; j++){
-        document.getElementById('categoriaL'+i).innerHTML +=`
-              
-              <img class="col-6 mx-auto imgLanding" src="${categorias[i].productos[j].imagenProduto}" class="card-img-top" alt="...">
-             
-              
-           
-          `
-    }
+
 }
+    
+landing();
 
 
 //Funcion del boton Inicio
 function cargarLanding(){
 
-  
+    
 
     
     
@@ -349,37 +234,120 @@ function cargarLanding(){
    
    
 }
-cargarLanding();
+
 
 //Funcion del boton Categorias
 
 function cargarCategorias(){
-    document.getElementById('categoriasTipos').innerHTML = '';
-    for(let i = 0 ; i<categorias.length; i++){
-        document.getElementById('categoriasTipos').innerHTML += `
-        <div class="titulosCategorias"><h4>${categorias[i].nombreCategoria}</h4></div>
-    
-        <div class="scrollLateral" id="categoria${i}">
-      
-     </div>
-        `;
-    }
-   
-    for(let i = 0 ; i<categorias.length ; i++){
-        for(let j = 0 ; j<categorias[i].productos.length; j++){
-            document.getElementById('categoria'+[i]).innerHTML +=
-            `
-            <div class="productoScroll">
-            <div id="productosCategorias">
-          <img src="${categorias[i].productos[j].imagenProduto}" class="card-img-top imagenCategoria" alt="...">
-            <h5 >${categorias[i].productos[j].nombreProducto}</h5>
-            </div>
-          
+    $.ajax({
+        url: "/productos/juguetes", 
+        method: "GET",
+        dataType: "json",
+        success:(res)=>{
         
-      </div>
-            `
-        }
-    }
+                document.getElementById('categoriasTipos').innerHTML += `
+                    <div class="titulosCategorias"><h4>Juguetes</h4></div>
+                    <div class="scrollLateral" id="categoria${res[0].categoria}">
+                  
+                     </div>
+                    `;
+               
+                    document.getElementById('categoriajuguetes').innerHTML = '';
+            for(let i = 0 ; i<res.length ; i++){
+                    document.getElementById('categoria'+res[i].categoria).innerHTML +=
+                    `
+                    <div class="productoScroll row">
+                    <div id="pdt" class="productosCategorias" type="button" data-bs-toggle="modal" data-bs-target="#productosModal" value="${res[i]._id}" onclick="modalProductos('${res[i]._id}')" >
+                  <img src="${res[i].img}" class="card-img-top imagenCategoria" alt="..." ">
+                    <h5 >${res[i].nombreProducto}</h5>
+                    </div>
+                    </div>
+                    `
+                
+            }
+
+            
+
+
+        },
+        error:(error)=>{
+            console.log(error);
+        } 
+    });
+
+    $.ajax({
+        url: "/productos/electronicos", 
+        method: "GET",
+        dataType: "json",
+        success:(res)=>{
+           
+                document.getElementById('categoriasTipos').innerHTML = `
+                    <div class="titulosCategorias"><h4>Electronicos</h4></div>
+                
+                    <div class="scrollLateral" id="categoria${res[0].categoria}">
+                  
+                     </div>
+                    `;
+               
+                    document.getElementById('categoriaelectronicos').innerHTML += '';
+            for(let i = 0 ; i<res.length ; i++){
+                    document.getElementById('categoria'+res[i].categoria).innerHTML +=
+                    `
+                    <div class="productoScroll row">
+                    <div id="pdt" class="productosCategorias" type="button" data-bs-toggle="modal" data-bs-target="#productosModal" value="${res[i]._id}" onclick="modalProductos('${res[i]._id}')" >
+                  <img src="${res[i].img}" class="card-img-top imagenCategoria" alt="..." ">
+                    <h6 >${res[i].nombreProducto}</h6>
+                
+                    </div>
+                    </div>
+                    `
+                
+            }
+
+            
+        },
+        error:(error)=>{
+            console.log(error);
+        } 
+    });
+
+    $.ajax({
+        url: "/productos/zapatos", 
+        method: "GET",
+        dataType: "json",
+        success:(res)=>{
+           
+                document.getElementById('categoriasTipos').innerHTML += `
+                    <div class="titulosCategorias"><h4>Zapatos</h4></div>
+                
+                    <div class="scrollLateral" id="categoria${res[0].categoria}">
+                  
+                     </div>
+                    `;
+               
+                    document.getElementById('categoriazapatos').innerHTML = '';
+            for(let i = 0 ; i<res.length ; i++){
+                    document.getElementById('categoria'+res[i].categoria).innerHTML +=
+                    `
+                    <div class="productoScroll row">
+                    <div id="pdt" class="productosCategorias" type="button" data-bs-toggle="modal" data-bs-target="#productosModal" value="${res[i]._id}" onclick="modalProductos('${res[i]._id}')" >
+                  <img src="${res[i].img}" class="card-img-top imagenCategoria" alt="..." ">
+                    <h5 >${res[i].nombreProducto}</h5>
+            
+                    </div>
+                    </div>
+                    `
+                
+            }
+
+            
+        },
+        error:(error)=>{
+            console.log(error);
+        } 
+    });
+
+    
 
     
     
@@ -394,35 +362,47 @@ function cargarCategorias(){
 }
 
 //Funcion del boton Empresas
+
+
 function cargarEmpresas(){
   
     
+    $.ajax({
+        url: "/empresas", 
+        method: "GET",
+        dataType: "json",
+        success:(res)=>{
 
-    for(let i = 0 ;i<empresas.length;i++){
-        document.getElementById('empresasTipos').innerHTML = '';
-        for(let j = 0 ; j< empresas[0].empresasTipos.length;j++){
-
-            document.getElementById('empresasTipos').innerHTML +=`   
-            <div class="col">
-            <div class="card " style="max-width: 600px;">
-            <div class="row g-0" style="min-height:200px;">
-              <div class="col-md-4 imagenCardEmpresa">
-                <img src="${empresas[0].empresasTipos[j].imagenEmpresa}" class="img-fluid rounded-start imagenEmpresa  " alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">${empresas[0].empresasTipos[j].nombreEmpresa}</h5>
-                  <p class="card-text">${empresas[0].empresasTipos[j].descripcionEmpresa}</p>
-                  <p class="card-text"><small class="text-muted"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-              `
-        }
-      
-    }
+                document.getElementById('empresasTipos').innerHTML = '';
+                for(let j = 0 ; j< res.length;j++){
+        
+                    document.getElementById('empresasTipos').innerHTML +=`   
+                    <div class="col">
+                    <div class="card " style="max-width: 600px;">
+                    <div class="row g-0" style="min-height:200px;">
+                      <div class="col-md-4 imagenCardEmpresa">
+                        <img src="${res[j].img}" class="img-fluid rounded-start imagenEmpresa  " alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">${res[j].nombreEmpresa}</h5>
+                          <p class="card-text">${res[j].descripcion}</p>
+                          <p class="card-text"><small class="text-muted">${res[j].calificacion}</small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                      `
+                }
+              
+            
+        },
+        error:(error)=>{
+            console.log(error);
+        } 
+    });
+    
     
    
     document.getElementById('cat').style.display = 'none';    
@@ -435,67 +415,209 @@ function cargarEmpresas(){
 }
 
 function cargarCarrito(){
-  
-    
+  var suma = 0;
 
-    for(let i = 0 ;i<3;i++){
-        document.getElementById('carritoPag').innerHTML = '';
-        for(let j = 0 ; j< 4;j++){
+  $.ajax({
+    url: `/pedidos`, 
+    method: "GET",
+    dataType: "json",
+    success:(res)=>{
+      
+      document.getElementById('carritoPag').innerHTML = '';
+      for(let i = 0 ;i<res.length;i++){
 
             document.getElementById('carritoPag').innerHTML +=`   
             <div class="col">
             <div class="card " style="max-width: 600px;">
             <div class="row g-0" >
               <div class="col-md-4 imagenCardCarrito">
-                <img src="${categorias[i].productos[j].imagenProduto}" class="img-fluid rounded-start imagenEmpresa  " alt="...">
+                <img src="${res[i].img}" class="img-fluid rounded-start imagenEmpresa  " alt="...">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">${categorias[i].productos[j].nombreProducto}</h5>
-                  <p class="card-text">${categorias[i].productos[j].descripcionProducto}</p>
-                  <p class="card-text"><small class="text-muted">${categorias[i].productos[j].precio}</p>
+                  <h5 class="card-title">${res[i].nombreProducto}</h5>
+                  <p class="card-text">$${res[i].precio}</p>
+                  <p class="card-text"><small class="text-muted"></p>
                 </div>
               </div>
             </div>
           </div>
           </div>
               `
+          suma = suma + res[i].precio;
         }
       
-    }
-
+      
+    document.getElementById('carritoConfirmar').innerHTML = `<div class="col-12">
+    <h3>Total de compra: $${suma} </h3>
+  </div>
+  <div style="margin-top:1rem ;">
+    <button  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalConfirmarCompra">Confirmar Compra</button>
+    <br><br>
+  </div>`
  
+             
+    },
+    error:(error)=>{
+        console.log(error);
+    } 
+});     
+
+
+  
+
    
     document.getElementById('cat').style.display = 'none';    
     document.getElementById('landing').style.display = 'none';   
     document.getElementById('emp').style.display = 'none'; 
     document.getElementById('car').style.display = 'block'; 
-    document.getElementById('botonEmpresas').style = 'color: var(--bs-navbar-active-color);';
+    document.getElementById('botonEmpresas').style = 'color: var(--bs-navbar-hover-color);';
     document.getElementById('botonCategorias').style = 'color: var(--bs-navbar-hover-color);';
     document.getElementById('botonInicio').style = 'color: var(--bs-nav-link-hover-color);';
 }
 
 
 
+function modalProductos(id){
+               
+          
+          $.ajax({
+            url: `/productos/${id}`, 
+            method: "GET",
+            dataType: "json",
+            success:(res)=>{
+                let producto = res[0];
 
-// Validaciones segun bootstrap
-(() => {
-    'use strict'
-  
-    
-    const forms = document.querySelectorAll('.needs-validation')
-  
+                document.getElementById("productosModal").innerHTML = `
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="nombreProducto" value="${producto.nombreProducto}">${producto.nombreProducto}</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <img src="${producto.img}" id="img" value="${producto.img}">
+                    <div class="modal-body" id="precio" value="${producto.precio}"  style="text-align: center">
+                    <strong>Precio: $${producto.precio}</strong>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-primary" onclick="carritoAgregar()">Agregar al carrito</button>
+                    </div>
+                  </div>
+                </div>
+              </div>`
+              
+             
+                
+            },
+            error:(error)=>{
+                console.log(error);
+            } 
+        });     
    
-    Array.from(forms).forEach(form => {
-      form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
+}
+
+function crearCuenta(){
+  $.ajax({
+    url: "/registro", 
+    method: "Post",
+    data: {
+      nombre : document.getElementById('inputNameR').value,
+      apellido : document.getElementById('inputLastNameR').value,
+      email: document.getElementById('inputEmailR').value,
+      contraseña: document.getElementById('inputPasswordR').value,
+      tipoUsuario: 'Cliente',
+      validado: false
+    },
+    success:(res)=>{
+        
+        console.log(res);  
+    },
+    error:(error)=>{
+        console.log(error);
+    } 
+});
+
+}
+
+function reset(){
+  document.getElementById('botonIngresar').removeAttribute("data-bs-dismiss",'modal');
+}
+
+ function ingresar(){
   
-        form.classList.add('was-validated')
-      }, false)
-    })
-  })()
+  
+ 
+  $.ajax({
+      url: `/login`, 
+      method: "GET",
+      dataType: "json",
+      success:(res)=>{
+
+        for(let i = 0; i<res.length ; i++){
+          const emailU = res[i].email;
+        if( emailU == document.getElementById('inputEmailL').value) {
+          document.getElementById('botonIngresar').setAttribute("data-bs-dismiss",'modal');
+        } else{
+        }   
+      }
+      },
+      error:(error)=>{
+          console.log(error);
+      } 
+  });   
+ }
+
+ 
 
 
+ function carritoAgregar(){
+  var i = Math.floor(Math.random(1,500)*10);
+  
+  $.ajax({
+    url: "/agregarCarrito", 
+    method: "Post",
+    data: {
+    numeroPedido: i,
+    nombreProducto:   document.getElementById('nombreProducto').getAttribute("value"),  
+    precio:   document.getElementById('precio').getAttribute("value"),  
+    cantidad: 1,
+    img: document.getElementById('img').getAttribute("value")
+    },
+    success:(res)=>{
+        
+        console.log(res);  
+    },
+    error:(error)=>{
+        console.log(error);
+    } 
+});
+ }
+
+
+ function agregarPedido(){
+
+  let date = new Date();
+  let output = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear();
+
+  var i = Math.floor(Math.random(1,500)*10);
+  $.ajax({
+    url: "/agregarPedido", 
+    method: "Post",
+    data: {
+      numeroPedido: i,
+      nombreCliente : document.getElementById('inputName').value,
+      ubicacion: document.getElementById('ubicacionPedido').value,
+      estado: 'No aceptado',
+      conductor: '',
+      fecha: output
+    },
+    success:(res)=>{
+        
+        console.log(res);  
+    },
+    error:(error)=>{
+        console.log(error);
+    } 
+});
+ }
